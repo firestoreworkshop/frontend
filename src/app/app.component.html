@@ -1,0 +1,32 @@
+<mat-sidenav-container fixedInViewport="true" class="example-container">
+  <mat-sidenav mode="side" role="navigation" opened>
+    <img src="assets/logo.png" class="sideLogo">
+    <br>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span>Firestore Workshop</span>
+    </mat-toolbar>
+    <div class="main-content-container">
+      <h3>Raised Buttons</h3>
+      <div class="example-button-row">
+        <button mat-raised-button>Basic</button>
+        <button mat-raised-button color="primary">Primary</button>
+        <button mat-raised-button color="accent">Accent</button>
+        <button mat-raised-button color="warn">Warn</button>
+        <button mat-raised-button disabled>Disabled</button>
+        <a mat-raised-button routerLink=".">Link</a>
+      </div>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,27 @@
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.white-toolbar {
+  background: white;
+}
+
+
+mat-sidenav-container {
+  height: 100vh;
+}
+
+mat-sidenav {
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
+}
+
+.sideLogo {
+  width: 40px;
+  padding: 20px;
+}
+
+
+.main-content-container {
+  margin: 10px;
+}
