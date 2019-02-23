@@ -1,0 +1,39 @@
+.column-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.column-element-logo, .column-element {
+    padding: 20px;
+    width: 40px;
+    height: 55px;
+}
+
+.column-element {
+    height: 40px;
+}
+
+
+.sideLogo {
+    width: 40px;
+}
+
+.mat-icon-button.icon-button {
+
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+
+    .mat-icon {
+        font-size: 40px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        color: #FFCA28;
+    }
+}
+
+
+.icon-button {
+
+}
