@@ -9,6 +9,12 @@ import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatIconModule } fr
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 @NgModule({
    declarations: [
       AppComponent,
@@ -23,7 +29,12 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
       MatButtonModule,
       MatToolbarModule,
       MatSidenavModule,
-      MatIconModule
+      MatIconModule,
+
+      AngularFireModule.initializeApp(environment.firebase), // koblingsordre-hn-test
+      AngularFirestoreModule,
+      AngularFireFunctionsModule,
+      AngularFireAuthModule
    ],
    providers: [],
    bootstrap: [
