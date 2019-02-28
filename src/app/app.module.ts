@@ -5,7 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatIconModule, MatCardModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatSidenavModule,
+  MatButtonModule,
+  MatIconModule,
+  MatCardModule,
+  MatSlideToggleModule,
+  MatSliderModule,
+  MatDividerModule,
+} from '@angular/material';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
@@ -16,7 +25,11 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HomeComponent } from './home/home.component';
 import { RestaurantCardComponent } from './home/restaurant-card/restaurant-card.component';
-import { FirestoreSettingsToken} from '@angular/fire/firestore';
+import { FirestoreSettingsToken } from '@angular/fire/firestore';
+import { YesNoPipe } from './pipes/yesno/yes-no.pipe';
+import { FormsModule } from '@angular/forms';
+import { RestaurantComponent } from './restaurant/restaurant.component';
+import { ReviewsComponent } from './restaurant/reviews/reviews.component';
 
 const matImports = [
   MatCardModule,
@@ -24,6 +37,9 @@ const matImports = [
   MatToolbarModule,
   MatSidenavModule,
   MatIconModule,
+  MatSlideToggleModule,
+  MatSliderModule,
+  MatDividerModule
 ];
 
 @NgModule({
@@ -33,7 +49,10 @@ const matImports = [
     SidebarComponent,
     ToolbarComponent,
     HomeComponent,
-    RestaurantCardComponent
+    RestaurantCardComponent,
+    YesNoPipe,
+    RestaurantComponent,
+    ReviewsComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +62,8 @@ const matImports = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireFunctionsModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FormsModule
   ],
   providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [

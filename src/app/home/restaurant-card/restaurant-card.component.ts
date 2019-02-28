@@ -7,8 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RestaurantCardComponent implements OnInit {
 
-  @Input() name;
-  @Input() description;
+  @Input() restaurant: Restaurant;
 
   constructor() { }
 

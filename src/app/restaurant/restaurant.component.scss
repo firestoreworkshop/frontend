@@ -1,0 +1,15 @@
+.restaurant-container {
+	display: grid;
+  grid-gap: 15px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.restaurant-info-container {
+	grid-column: 1 / 2;
+	grid-row: 1;
+}
+
+.restaurant-review-container {
+	grid-column: 2 / 3;
+	grid-row: 1;
+}

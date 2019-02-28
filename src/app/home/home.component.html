@@ -9,29 +9,45 @@
 </div> -->
 
 <div class="home-container">
-  <div class="search-container">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar>
-          <mat-icon class="icon">search</mat-icon>
-        </div>
-        <mat-card-title>Search</mat-card-title>
-        <mat-card-subtitle>For a restaurant</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          TODO add search controls
-        </p>
-      </mat-card-content>
-      <!-- <mat-card-actions>
+	<div class="search-container">
+		<mat-card class="example-card">
+			<mat-card-header>
+				<div mat-card-avatar>
+					<mat-icon class="icon">search</mat-icon>
+				</div>
+				<mat-card-title>Search</mat-card-title>
+				<mat-card-subtitle>For a restaurant</mat-card-subtitle>
+			</mat-card-header>
+			<mat-card-content>
+
+				<mat-slide-toggle [(ngModel)]="searchEnabled" (change)="updateQuery()">Enable searching</mat-slide-toggle><br>
+
+				<ng-container *ngIf="searchEnabled">
+						<hr class="search-divider">
+
+					<mat-slide-toggle [(ngModel)]="freeDelivery" (change)="updateQuery()">Has free delivery</mat-slide-toggle><br>
+					<mat-slide-toggle [(ngModel)]="isAmerican" (change)="updateQuery()">Is american</mat-slide-toggle><br>
+
+					Min price (NOK KR)
+					<mat-slider thumbLabel class="my-slider" [(ngModel)]="minPrice"  (change)="updateQuery()" tickInterval="1" step="100" min="100" max="1000"></mat-slider><br>
+					Max price (NOK KR)
+					<mat-slider thumbLabel class="my-slider" [(ngModel)]="maxPrice"  (change)="updateQuery()" tickInterval="1" step="100" min="100" max="1000"></mat-slider><br>
+					<br>
+					Number of Michelin stars
+					<mat-slider thumbLabel class="my-slider" [(ngModel)]="michelinStars"  (change)="updateQuery()" tickInterval="1" step="1" min="0" max="3"></mat-slider><br>
+
+				</ng-container>
+
+			</mat-card-content>
+			<!-- <mat-card-actions>
             <button mat-button>LIKE</button>
             <button mat-button>SHARE</button>
           </mat-card-actions> -->
-    </mat-card>
-  </div>
-  <div class="list-container">
-    <div *ngFor="let restaurant of restaurants | async">
-      <shop-restaurant-card [name]="restaurant.name" [description]="restaurant.description"></shop-restaurant-card>
-    </div>
-  </div>
+		</mat-card>
+	</div>
+	<div class="list-container">
+		<div *ngFor="let restaurant of restaurants | async">
+			<shop-restaurant-card [restaurant]="restaurant"></shop-restaurant-card>
+		</div>
+	</div>
 </div>

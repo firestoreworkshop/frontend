@@ -3,17 +3,26 @@
     <div mat-card-avatar>
       <mat-icon class="icon">store</mat-icon>
     </div>
-    <mat-card-title>{{name}}</mat-card-title>
-    <mat-card-subtitle>TODO</mat-card-subtitle>
+    <mat-card-title>{{restaurant.name}}</mat-card-title>
+    <mat-card-subtitle>Michelin Stars: {{restaurant.michelinStars}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <img mat-card-image class="card-image" src="{{restaurant.imageUrl}}" alt="Photo of a Thing">
   <mat-card-content>
     <p>
-      {{description}}
+      {{restaurant.description}}
+    </p>
+    <p>
+      Free delivery: {{restaurant.freeDelivery | yesNoPipe}}
+    </p>
+    <p>
+      Is American: {{restaurant.isAmerican | yesNoPipe}}
+    </p>
+    <p>
+      Average price: <b>{{restaurant.averagePrice}}</b>
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
+    <button mat-raised-button color="primary" [routerLink]="['/restaurant/' + restaurant.id]" >Open page</button>
+    <button mat-raised-button>SHARE</button>
   </mat-card-actions>
 </mat-card>
