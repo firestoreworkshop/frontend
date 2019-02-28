@@ -8,9 +8,16 @@
   </mat-card-header>
   <!-- <img mat-card-image class="card-image" src="{{restaurant.imageUrl}}" alt="Photo of a Thing"> -->
   <mat-card-content>
+
+    <ng-container *ngIf="reviews | async as reviews">
+        <div *ngFor="let review of reviews">
+          {{review.username}}: {{review.content}} (score: {{review.score}}/5)
+        </div>
+    </ng-container>
+
     Shit resturant 5/5
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary">Add review</button>
+    <button mat-raised-button color="primary" (click)="openAddReview()">Add review</button>
   </mat-card-actions>
 </mat-card>

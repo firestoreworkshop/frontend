@@ -14,6 +14,8 @@ import {
   MatSlideToggleModule,
   MatSliderModule,
   MatDividerModule,
+  MatDialogModule,
+  MatInputModule,
 } from '@angular/material';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -30,6 +32,7 @@ import { YesNoPipe } from './pipes/yesno/yes-no.pipe';
 import { FormsModule } from '@angular/forms';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { ReviewsComponent } from './restaurant/reviews/reviews.component';
+import { AddReviewComponent } from './restaurant/reviews/add-review/add-review.component';
 
 const matImports = [
   MatCardModule,
@@ -39,7 +42,9 @@ const matImports = [
   MatIconModule,
   MatSlideToggleModule,
   MatSliderModule,
-  MatDividerModule
+  MatDividerModule,
+  MatDialogModule,
+  MatInputModule,
 ];
 
 @NgModule({
@@ -53,7 +58,9 @@ const matImports = [
     YesNoPipe,
     RestaurantComponent,
     ReviewsComponent,
+    AddReviewComponent,
   ],
+  entryComponents: [AddReviewComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

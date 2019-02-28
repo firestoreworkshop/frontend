@@ -10,27 +10,28 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class RestaurantComponent implements OnInit {
 
+  id = '';
+
   restaurant: Observable<Restaurant>;
 
   constructor(private firestore: AngularFirestore, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    const id: string = this.route.snapshot.params.id;
-    if (!id) {
+    this.id = this.route.snapshot.params.id;
+    if (!this.id) {
       // no id, goto home
       this.router.navigate(['/']);
       return;
     }
 
-    this.loadRestaurant(id);
+    this.loadRestaurant();
 
   }
 
-  loadRestaurant(id: string) {
-    console.log(id);
+  loadRestaurant() {
     this.restaurant = this.firestore.collection<Restaurant>(
       'restaurants'
-    ).doc<Restaurant>(id).valueChanges();
+    ).doc<Restaurant>(this.id).valueChanges();
   }
   /* Below are helper functions */
 
