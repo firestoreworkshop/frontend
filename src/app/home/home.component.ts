@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, CollectionReference } from '@angular/fire/firestore';
+import { AngularFirestore, CollectionReference, Query } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -26,9 +26,9 @@ export class HomeComponent implements OnInit {
     this.updateQuery();
   }
 
-  createQuery(reference) {
+  createQuery(reference: Query) {
     if (!this.searchEnabled) {
-      return reference;
+      return reference = reference.orderBy('averagePrice', 'asc');
     }
 
     if (this.freeDelivery) {
@@ -39,7 +39,8 @@ export class HomeComponent implements OnInit {
     }
     reference = reference
       .where('averagePrice', '>=', this.minPrice)
-      .where('averagePrice', '<=', this.maxPrice);
+      .where('averagePrice', '<=', this.maxPrice)
+      .orderBy('averagePrice', 'asc');
     return reference;
   }
 
