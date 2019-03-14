@@ -11,7 +11,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class RestaurantComponent implements OnInit {
 
   id = '';
-
   restaurant: Observable<Restaurant>;
 
   constructor(private firestore: AngularFirestore, private router: Router, private route: ActivatedRoute) { }
@@ -32,15 +31,6 @@ export class RestaurantComponent implements OnInit {
     this.restaurant = this.firestore.collection<Restaurant>(
       'restaurants'
     ).doc<Restaurant>(this.id).valueChanges();
-  }
-  /* Below are helper functions */
-
-  private mapStream(stream) {
-    return stream.map(document => {
-      const data = document.payload.doc.data() as Restaurant;
-      const id = document.payload.doc.id;
-      return { id, ...data };
-    });
   }
 
 }
