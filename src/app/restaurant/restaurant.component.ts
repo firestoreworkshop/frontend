@@ -27,6 +27,7 @@ export class RestaurantComponent implements OnInit {
 
   }
 
+  // Task 5
   loadRestaurant() {
     this.restaurant = this.firestore.collection<Restaurant>(
       'restaurants'

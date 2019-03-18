@@ -26,7 +26,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HomeComponent } from './home/home.component';
-import { RestaurantCardComponent } from './home/restaurant-card/restaurant-card.component';
+import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
 import { FirestoreSettingsToken } from '@angular/fire/firestore';
 import { YesNoPipe } from './pipes/yesno/yes-no.pipe';
 import { FormsModule } from '@angular/forms';

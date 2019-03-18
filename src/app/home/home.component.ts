@@ -12,9 +12,9 @@ export class HomeComponent implements OnInit {
 
   restaurants: Observable<Restaurant[]>;
 
+  searchEnabled = false;
   freeDelivery = false;
   isAmerican = false;
-  searchEnabled = false;
 
   michelinStars = 0;
   minPrice = 0;
@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
     this.updateQuery();
   }
 
+  // Task 4.5
   createQuery(reference: Query) {
     if (!this.searchEnabled) {
       return reference = reference.orderBy('averagePrice', 'asc');
@@ -37,6 +38,7 @@ export class HomeComponent implements OnInit {
     if (this.isAmerican) {
       reference = reference.where('isAmerican', '==', this.isAmerican);
     }
+
     reference = reference
       .where('averagePrice', '>=', this.minPrice)
       .where('averagePrice', '<=', this.maxPrice)
@@ -44,6 +46,7 @@ export class HomeComponent implements OnInit {
     return reference;
   }
 
+  // Task 3 & 4
   updateQuery() {
     this.restaurants = this.firestore.collection<Restaurant>(
       'restaurants',
@@ -51,8 +54,7 @@ export class HomeComponent implements OnInit {
     ).snapshotChanges().pipe(map(stream => this.mapStream(stream)));
   }
 
-  /* Below are helper functions */
-
+  /* Below are A helper function (For getting document ID) */
   private mapStream(stream) {
     return stream.map(document => {
       const data = document.payload.doc.data() as Restaurant;

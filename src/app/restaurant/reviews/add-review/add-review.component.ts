@@ -22,6 +22,7 @@ export class AddReviewComponent implements OnInit {
 
   }
 
+  // Task 6
   addReview() {
     this.firestore.collection<Restaurant>(
       'restaurants'

@@ -17,6 +17,7 @@ export class ReviewsComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private firestore: AngularFirestore) { }
 
+  // Task 6
   ngOnInit() {
     this.reviews = this.firestore.collection<Restaurant>(
       'restaurants'
