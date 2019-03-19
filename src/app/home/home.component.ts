@@ -28,30 +28,12 @@ export class HomeComponent implements OnInit {
 
   // Task 4.5
   createQuery(reference: Query) {
-    if (!this.searchEnabled) {
-      return reference = reference.orderBy('averagePrice', 'asc');
-    }
-
-    if (this.freeDelivery) {
-      reference = reference.where('freeDelivery', '==', this.freeDelivery);
-    }
-    if (this.isAmerican) {
-      reference = reference.where('isAmerican', '==', this.isAmerican);
-    }
-
-    reference = reference
-      .where('averagePrice', '>=', this.minPrice)
-      .where('averagePrice', '<=', this.maxPrice)
-      .orderBy('averagePrice', 'asc');
     return reference;
   }
 
   // Task 3 & 4
   updateQuery() {
-    this.restaurants = this.firestore.collection<Restaurant>(
-      'restaurants',
-      (reference => this.createQuery(reference))
-    ).snapshotChanges().pipe(map(stream => this.mapStream(stream)));
+    // this.restaurants =
   }
 
   /* Below are A helper function (For getting document ID) */

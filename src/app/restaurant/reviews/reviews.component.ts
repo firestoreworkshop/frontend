@@ -19,9 +19,7 @@ export class ReviewsComponent implements OnInit {
 
   // Task 6
   ngOnInit() {
-    this.reviews = this.firestore.collection<Restaurant>(
-      'restaurants'
-    ).doc<Restaurant>(this.id).collection<Review>('reviews').valueChanges();
+    // this.reviews =
   }
 
   openAddReview() {

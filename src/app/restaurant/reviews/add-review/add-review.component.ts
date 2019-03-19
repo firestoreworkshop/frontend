@@ -24,15 +24,7 @@ export class AddReviewComponent implements OnInit {
 
   // Task 6
   addReview() {
-    this.firestore.collection<Restaurant>(
-      'restaurants'
-    ).doc<Restaurant>(this.data.id).collection<Review>('reviews').add({
-      score: this.score,
-      username: this.username,
-      content: this.content
-    }).then(() => {
-      this.dialogRef.close();
-    });
+
   }
 
 }
