@@ -22,7 +22,7 @@ export class AddReviewComponent implements OnInit {
 
   }
 
-  // Task 6
+  // Task 7
   addReview() {
 
   }

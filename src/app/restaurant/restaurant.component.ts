@@ -27,7 +27,7 @@ export class RestaurantComponent implements OnInit {
 
   }
 
-  // Task 5
+  // Task 6
   loadRestaurant() {
     // this.restaurant =
   }
