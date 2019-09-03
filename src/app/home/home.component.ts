@@ -36,13 +36,4 @@ export class HomeComponent implements OnInit {
     // this.restaurants =
   }
 
-  /* Below are A helper function (For getting document ID) */
-  private mapStream(stream) {
-    return stream.map(document => {
-      const data = document.payload.doc.data() as Restaurant;
-      const id = document.payload.doc.id;
-      return { id, ...data };
-    });
-  }
-
 }
